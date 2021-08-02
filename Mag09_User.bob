@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(BL) </name>
+  <width>1300</width>
+  <height>1100</height>
+  <widget type="group" version="2.0.0">
+    <name> Superconducting Magnet Control</name>
+    <x>6</x>
+    <y>6</y>
+    <width>574</width>
+    <height>301</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Desired Field</text>
+      <x>18</x>
+      <y>54</y>
+      <width>124</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Ramping To</text>
+      <y>120</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Persistent Field</text>
+      <x>18</x>
+      <y>20</y>
+      <width>124</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="open_display">
+          <file>Mag09_SEQ.bob</file>
+          <target>replace</target>
+          <description>Details</description>
+        </action>
+      </actions>
+      <x>18</x>
+      <y>216</y>
+      <width>108</width>
+      <height>26</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Power Supply Field</text>
+      <y>154</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Ramp Rate</text>
+      <x>18</x>
+      <y>86</y>
+      <width>124</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>(only valid at end of ramp)</text>
+      <x>264</x>
+      <y>20</y>
+      <width>211</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Ramp Error</text>
+      <x>150</x>
+      <y>216</y>
+      <width>104</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input_1</name>
+      <pv_name>$(PS):FieldSet</pv_name>
+      <x>150</x>
+      <y>54</y>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_33</name>
+      <pv_name>$(PS):READ_PFLD</pv_name>
+      <x>150</x>
+      <y>25</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_34</name>
+      <pv_name>$(PS):READ_RCST</pv_name>
+      <x>150</x>
+      <y>86</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_35</name>
+      <pv_name>$(PS):READ_FSET</pv_name>
+      <x>150</x>
+      <y>120</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_37</name>
+      <pv_name>$(PS):Message</pv_name>
+      <x>18</x>
+      <y>180</y>
+      <width>382</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>Byte Monitor</name>
+      <pv_name>$(PS):State</pv_name>
+      <x>426</x>
+      <y>6</y>
+      <width>105</width>
+      <height>257</height>
+      <numBits>12</numBits>
+      <bitReverse>true</bitReverse>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <labels>
+        <text>Init</text>
+        <text>Idle</text>
+        <text>PSU Ramp</text>
+        <text>Heater On</text>
+        <text>Magnet Ramp</text>
+        <text>Heater Off</text>
+        <text>PSU Zero</text>
+        <text>End</text>
+        <text>Error</text>
+        <text>Reset</text>
+      </labels>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED</name>
+      <pv_name>$(PS):Error</pv_name>
+      <bit>0</bit>
+      <x>276</x>
+      <y>216</y>
+      <width>22</width>
+      <height>22</height>
+      <on_color>
+        <color name="Major" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_1</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>Start Ramp</description>
+        </action>
+      </actions>
+      <pv_name>$(PS):Ramp</pv_name>
+      <x>276</x>
+      <y>54</y>
+      <width>117</width>
+      <height>26</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_38</name>
+      <pv_name>$(PS):READ_FLD</pv_name>
+      <x>150</x>
+      <y>154</y>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Alarm Control</name>
+    <x>6</x>
+    <y>307</y>
+    <width>294</width>
+    <height>164</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="combo" version="2.0.0">
+      <name>Menu Button</name>
+      <pv_name>$(PS):AlarmEnable</pv_name>
+      <x>93</x>
+      <y>26</y>
+      <width>153</width>
+      <height>31</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_27</name>
+      <pv_name>$(PS):Alarm</pv_name>
+      <x>93</x>
+      <y>67</y>
+      <width>153</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Alarm Control</text>
+      <y>29</y>
+      <width>89</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Alarm</text>
+      <y>67</y>
+      <width>89</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser</name>
+    <file>mag09User.plt</file>
+    <x>590</x>
+    <y>20</y>
+    <width>660</width>
+    <height>510</height>
+  </widget>
+</display>

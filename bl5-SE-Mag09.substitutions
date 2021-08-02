@@ -1,0 +1,33 @@
+file MAG-09ipCSimple.template
+{
+pattern {S, PORT}
+        {BL5:SE:MAG09iPS, PS1}
+}
+
+file MAG-09itCSimple.template
+{
+pattern {S, PORT}
+        {BL5:SE:MAG09iTC, TM1}
+
+}
+
+file mag_09.template
+{
+pattern {S, PORT}
+        {BL5:SE:MAG09iPS}
+
+}
+
+
+#file save_restoreStatus.db
+#{
+#pattern {P}
+#        {SE:CS:MAG09:}
+#}
+
+#file ioc_sns.db
+#{
+#pattern {IOCNAME}
+#        {SE:CS:MAG09}
+#}
+

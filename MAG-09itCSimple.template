@@ -1,0 +1,62 @@
+record(ai, "$(S):READ_VTITEMP") {
+  info(DESC, "Read VTI temp")
+  field(SCAN, "2 second")
+  field(DTYP, "stream")
+  field(INP, "@iTC-SCPI-MAG09.proto RVTI_TEMP $(PORT)")
+  field(PREC, "3")
+  field(EGU, "K")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+
+
+record(ai, "$(S):READ_VTIHeaterV") {
+  info(DESC, "Read VTI Heater V")
+  field(SCAN, "2 second")
+  field(DTYP, "stream")
+  field(INP, "@iTC-SCPI-MAG09.proto RVTI_HEATERV $(PORT)")
+  field(PREC, "3")
+  field(EGU, "V")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+
+
+
+
+record(ai, "$(S):READ_BathPress") {
+  info(DESC, "Read Bath Pressure")
+  field(SCAN, "2 second")
+  field(DTYP, "stream")
+  field(INP, "@iTC-SCPI-MAG09.proto RBATH_PRESS $(PORT)")
+  field(PREC, "3")
+  field(EGU, "mB")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+
+record(ai, "$(S):READ_PTTemp") {
+  info(DESC, "Read PT Temp")
+  field(SCAN, "2 second")
+  field(DTYP, "stream")
+  field(INP, "@iTC-SCPI-MAG09.proto RPT_TEMP $(PORT)")
+  field(PREC, "3")
+  field(EGU, "K")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+record(ai, "$(S):READ_VTIHeaterPer") { 
+  info(DESC, "Read VTI Heater %") 
+  field(SCAN, "2 second") 
+  field(DTYP, "stream") 
+  field(INP, "@iTC-SCPI-MAG09.proto RVTI_HEATERP $(PORT)") 
+  field(PREC, "3") 
+  field(EGU, "%") 
+  info (archive, "monitor, 00:01:00, VAL") 
+} 
+
+
+
+
+
+

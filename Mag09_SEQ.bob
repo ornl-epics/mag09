@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(BL) Mag9 Details</name>
+  <width>1300</width>
+  <height>700</height>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="group" version="2.0.0">
+    <name>Mag-09 Superconducting Magnet Control (Details)</name>
+    <x>10</x>
+    <y>10</y>
+    <width>795</width>
+    <height>580</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Error</text>
+      <x>532</x>
+      <y>51</y>
+      <width>80</width>
+      <height>22</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED</name>
+      <pv_name>$(PS):Error</pv_name>
+      <bit>0</bit>
+      <x>623</x>
+      <y>51</y>
+      <width>22</width>
+      <height>22</height>
+      <on_color>
+        <color name="Major" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_1</name>
+      <pv_name>$(PS):Ramping</pv_name>
+      <bit>0</bit>
+      <x>623</x>
+      <y>25</y>
+      <width>22</width>
+      <height>22</height>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>Reset Error</description>
+        </action>
+      </actions>
+      <pv_name>$(PS):Reset</pv_name>
+      <x>654</x>
+      <y>278</y>
+      <width>105</width>
+      <height>26</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Ramping</text>
+      <x>535</x>
+      <y>25</y>
+      <width>77</width>
+      <height>22</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input</name>
+      <pv_name>$(PS):FieldSet</pv_name>
+      <x>150</x>
+      <y>25</y>
+      <width>127</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Desired Field</text>
+      <x>18</x>
+      <y>25</y>
+      <width>124</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(PS):RampingTo</pv_name>
+      <x>150</x>
+      <y>55</y>
+      <width>127</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Final Ramp Target</text>
+      <y>55</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED</name>
+      <pv_name>$(PS):WasReset</pv_name>
+      <bit>0</bit>
+      <x>623</x>
+      <y>76</y>
+      <width>22</width>
+      <height>22</height>
+      <on_color>
+        <color name="Major" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Reset Pressed</text>
+      <x>504</x>
+      <y>77</y>
+      <width>110</width>
+      <height>22</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_24</name>
+      <pv_name>$(PS):Message</pv_name>
+      <x>149</x>
+      <y>175</y>
+      <width>460</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>Stop Sequence</description>
+        </action>
+      </actions>
+      <pv_name>$(PS):StopRamp</pv_name>
+      <x>424</x>
+      <y>25</y>
+      <width>111</width>
+      <height>26</height>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>Start Ramp</description>
+        </action>
+      </actions>
+      <pv_name>$(PS):Ramp</pv_name>
+      <x>300</x>
+      <y>25</y>
+      <width>117</width>
+      <height>26</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(PS):StateEnum</pv_name>
+      <x>149</x>
+      <y>115</y>
+      <width>127</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>State</text>
+      <y>115</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(PS):WaitTime</pv_name>
+      <x>427</x>
+      <y>85</y>
+      <width>75</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>$(PS):RampStatus</pv_name>
+      <x>149</x>
+      <y>145</y>
+      <width>127</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Ramping State</text>
+      <y>145</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>Message</text>
+      <y>175</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>RAMPING!</text>
+      <x>424</x>
+      <y>51</y>
+      <width>139</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="22.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="Attention" red="255" green="160" blue="0">
+        </color>
+      </foreground_color>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="Visible Rule" prop_id="visible" out_exp="true">
+          <exp bool_exp="!pv0">
+            <expression>false</expression>
+          </exp>
+          <pv_name>$(PS):Ramping</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_5</name>
+      <pv_name>$(PS):LastTargetField</pv_name>
+      <x>150</x>
+      <y>85</y>
+      <width>127</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>Ramp Target</text>
+      <y>85</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>State Delay Time</text>
+      <x>303</x>
+      <y>85</y>
+      <width>121</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(PS):Timeout</pv_name>
+      <x>427</x>
+      <y>111</y>
+      <width>75</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(PS):WaitTimeHeater</pv_name>
+      <x>427</x>
+      <y>141</y>
+      <width>75</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>State Timeout</text>
+      <x>308</x>
+      <y>111</y>
+      <width>116</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>Heater Control Wait Time</text>
+      <x>303</x>
+      <y>137</y>
+      <width>124</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_9</name>
+      <text>Timer</text>
+      <y>205</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_6</name>
+      <pv_name>$(PS):Timer</pv_name>
+      <x>149</x>
+      <y>205</y>
+      <width>127</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>Byte Monitor</name>
+      <pv_name>$(PS):State</pv_name>
+      <x>654</x>
+      <y>18</y>
+      <width>105</width>
+      <height>257</height>
+      <numBits>12</numBits>
+      <bitReverse>true</bitReverse>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <labels>
+        <text>Init</text>
+        <text>Idle</text>
+        <text>PSU Ramp</text>
+        <text>Heater On</text>
+        <text>Magnet Ramp</text>
+        <text>Heater Off</text>
+        <text>PSU Zero</text>
+        <text>End</text>
+        <text>Error</text>
+        <text>Reset</text>
+      </labels>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_8</name>
+      <pv_name>$(TC):READ_BathPress</pv_name>
+      <x>654</x>
+      <y>360</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_15</name>
+      <pv_name>$(TC):READ_VTIHeaterV</pv_name>
+      <x>654</x>
+      <y>412</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_16</name>
+      <pv_name>$(TC):READ_VTITEMP</pv_name>
+      <x>654</x>
+      <y>439</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_27</name>
+      <text>MAG-09 Reads iTC</text>
+      <x>532</x>
+      <y>323</y>
+      <width>218</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="22.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_27</name>
+      <pv_name>$(TC):READ_VTIHeaterPer</pv_name>
+      <x>654</x>
+      <y>385</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_43</name>
+      <text>MAG-09 Reads iPS</text>
+      <x>71</x>
+      <y>317</y>
+      <width>218</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="22.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_44</name>
+      <text>Bath Pressure</text>
+      <x>517</x>
+      <y>359</y>
+      <width>133</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_46</name>
+      <text>Bath Heater Volt</text>
+      <x>517</x>
+      <y>413</y>
+      <width>133</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_47</name>
+      <text>VTI TEMP</text>
+      <x>432</x>
+      <y>440</y>
+      <width>218</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_48</name>
+      <text>Bath Heater %</text>
+      <x>517</x>
+      <y>384</y>
+      <width>133</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_38</name>
+      <text>Magnet Coil Temp</text>
+      <x>264</x>
+      <y>415</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_37</name>
+      <pv_name>$(PS):READ_T1</pv_name>
+      <x>434</x>
+      <y>413</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_39</name>
+      <text>Output Voltage</text>
+      <x>264</x>
+      <y>445</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_38</name>
+      <pv_name>$(PS):READ_VOLT</pv_name>
+      <x>434</x>
+      <y>443</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_40</name>
+      <text>Switch</text>
+      <x>264</x>
+      <y>473</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_39</name>
+      <pv_name>$(PS):READ_SWHT</pv_name>
+      <x>434</x>
+      <y>471</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_41</name>
+      <text>Ramp Status</text>
+      <x>264</x>
+      <y>502</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_40</name>
+      <pv_name>$(PS):READ_ACTN</pv_name>
+      <x>434</x>
+      <y>502</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_42</name>
+      <text>He Level</text>
+      <x>264</x>
+      <y>529</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_41</name>
+      <pv_name>$(PS):READ_HELLEV</pv_name>
+      <x>434</x>
+      <y>528</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_36</name>
+      <text>Field Rate</text>
+      <x>262</x>
+      <y>356</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_35</name>
+      <pv_name>$(PS):READ_RFLD</pv_name>
+      <x>432</x>
+      <y>354</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_37</name>
+      <text>Field Ramp Rate</text>
+      <x>264</x>
+      <y>385</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_36</name>
+      <pv_name>$(PS):READ_RFST</pv_name>
+      <x>434</x>
+      <y>383</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_29</name>
+      <text>Target Current</text>
+      <x>3</x>
+      <y>357</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_28</name>
+      <pv_name>$(PS):READ_CSET</pv_name>
+      <x>162</x>
+      <y>357</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_30</name>
+      <text>Output Current</text>
+      <x>3</x>
+      <y>387</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_29</name>
+      <pv_name>$(PS):READ_CURR</pv_name>
+      <x>164</x>
+      <y>385</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_31</name>
+      <text>Field</text>
+      <x>3</x>
+      <y>419</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_30</name>
+      <pv_name>$(PS):READ_FLD</pv_name>
+      <x>164</x>
+      <y>417</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_32</name>
+      <text>Target Field</text>
+      <x>3</x>
+      <y>445</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_31</name>
+      <pv_name>$(PS):READ_FSET</pv_name>
+      <x>164</x>
+      <y>444</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_33</name>
+      <text>Out Perc. Current</text>
+      <x>3</x>
+      <y>472</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_32</name>
+      <pv_name>$(PS):READ_PCUR</pv_name>
+      <x>164</x>
+      <y>472</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_34</name>
+      <text>Persistant Field</text>
+      <x>3</x>
+      <y>504</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_33</name>
+      <pv_name>$(PS):READ_PFLD</pv_name>
+      <x>164</x>
+      <y>503</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_35</name>
+      <text>Curr Target Ramp Rate</text>
+      <x>3</x>
+      <y>530</y>
+      <width>158</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_34</name>
+      <pv_name>$(PS):READ_RCST</pv_name>
+      <x>164</x>
+      <y>529</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>$(PS):DebugLevel</pv_name>
+      <x>149</x>
+      <y>238</y>
+      <width>127</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_10</name>
+      <text>Debug Level</text>
+      <x>1</x>
+      <y>234</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box</name>
+      <pv_name>$(PS):SET_ACTN</pv_name>
+      <x>437</x>
+      <y>204</y>
+      <height>20</height>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input_1</name>
+      <pv_name>$(PS):SET_FSET</pv_name>
+      <x>299</x>
+      <y>204</y>
+      <width>127</width>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button</name>
+      <pv_name>$(PS):SET_SWHT</pv_name>
+      <x>299</x>
+      <y>238</y>
+      <width>55</width>
+      <height>20</height>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_42</name>
+      <pv_name>$(PS):READ_SWHT</pv_name>
+      <x>367</x>
+      <y>238</y>
+      <width>59</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_43</name>
+      <pv_name>$(PS):READ_ACTN</pv_name>
+      <x>547</x>
+      <y>205</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_4</name>
+      <pv_name>$(PS):SWHTTimer</pv_name>
+      <x>437</x>
+      <y>233</y>
+      <width>93</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_7</name>
+      <pv_name>$(PS):SwitchTSts</pv_name>
+      <x>547</x>
+      <y>231</y>
+      <width>93</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_45</name>
+      <text>PTT TEMP</text>
+      <x>547</x>
+      <y>468</y>
+      <width>103</width>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_14</name>
+      <pv_name>$(TC):READ_PTTemp</pv_name>
+      <x>654</x>
+      <y>468</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_9</name>
+      <pv_name>$(PS):FieldPresent</pv_name>
+      <x>289</x>
+      <y>51</y>
+      <width>127</width>
+      <height>26</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Operational Notes</name>
+    <x>805</x>
+    <y>10</y>
+    <width>190</width>
+    <height>580</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>1) Persistent values are only valid if the persistent switch heater is turned off.2) Use the $(PS):FieldSetRamp PV in scripts. This will automatically start the ramp process.3) "Stop Sequence" will stop Ramping, sequence, set the persistent switch heater off, PSU zero.</text>
+      <x>12</x>
+      <y>18</y>
+      <width>145</width>
+      <height>459</height>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_23</name>
+      <text></text>
+      <x>12</x>
+      <y>347</y>
+      <width>340</width>
+      <height>116</height>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+</display>

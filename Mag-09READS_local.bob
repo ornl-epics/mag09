@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(S)</name>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>MAG-09 Reads iPS</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>330</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Target Current</text>
+    <y>50</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(PS):READ_CSET</pv_name>
+    <x>230</x>
+    <y>50</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Output Current</text>
+    <y>80</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(PS):READ_CURR</pv_name>
+    <x>232</x>
+    <y>78</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Field</text>
+    <y>112</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(PS):READ_FLD</pv_name>
+    <x>232</x>
+    <y>110</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Target Field</text>
+    <y>138</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(PS):READ_FSET</pv_name>
+    <x>232</x>
+    <y>136</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Out Perc. Current</text>
+    <y>165</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_5</name>
+    <pv_name>$(PS):READ_PCUR</pv_name>
+    <x>232</x>
+    <y>162</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Persistant Field</text>
+    <y>192</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>$(PS):READ_PFLD</pv_name>
+    <x>232</x>
+    <y>190</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Curr Target Ramp Rate</text>
+    <y>217</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(PS):READ_RCST</pv_name>
+    <x>232</x>
+    <y>215</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>Field Rate</text>
+    <y>244</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(PS):READ_RFLD</pv_name>
+    <x>232</x>
+    <y>242</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Field Target Ramp Rate</text>
+    <x>2</x>
+    <y>270</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_9</name>
+    <pv_name>$(PS):READ_RFST</pv_name>
+    <x>234</x>
+    <y>268</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>Temp 1</text>
+    <y>302</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_10</name>
+    <pv_name>$(PS):READ_T1</pv_name>
+    <x>232</x>
+    <y>300</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>Output Voltage</text>
+    <y>332</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_11</name>
+    <pv_name>$(PS):READ_VOLT</pv_name>
+    <x>232</x>
+    <y>330</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>Switch</text>
+    <y>360</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_12</name>
+    <pv_name>$(PS):READ_SWHT</pv_name>
+    <x>232</x>
+    <y>358</y>
+    <format>6</format>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Ramp Status</text>
+    <y>392</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_13</name>
+    <pv_name>$(PS):READ_ACTN</pv_name>
+    <x>232</x>
+    <y>390</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>Bath Pressure</text>
+    <x>380</x>
+    <y>50</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(TC):READ_BathPress</pv_name>
+    <x>610</x>
+    <y>50</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_16</name>
+    <text>PTT TEMP</text>
+    <x>380</x>
+    <y>80</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_14</name>
+    <pv_name>$(TC):READ_PTTemp</pv_name>
+    <x>612</x>
+    <y>78</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_17</name>
+    <text>VTI Heater Voltage</text>
+    <x>380</x>
+    <y>112</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_15</name>
+    <pv_name>$(TC):READ_VTIHeaterV</pv_name>
+    <x>612</x>
+    <y>110</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_18</name>
+    <text>VTI TEMP</text>
+    <x>380</x>
+    <y>138</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_16</name>
+    <pv_name>$(TC):READ_VTITEMP</pv_name>
+    <x>612</x>
+    <y>136</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_27</name>
+    <text>MAG-09 Reads iTC</text>
+    <x>480</x>
+    <y>10</y>
+    <width>218</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_29</name>
+    <text>Heater Percentage</text>
+    <x>380</x>
+    <y>161</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_27</name>
+    <pv_name>$(TC):READ_VTIHeaterPer</pv_name>
+    <x>612</x>
+    <y>161</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>He Level</text>
+    <y>416</y>
+    <width>218</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_17</name>
+    <pv_name>$(PS):READ_HELLEV</pv_name>
+    <x>232</x>
+    <y>415</y>
+  </widget>
+</display>

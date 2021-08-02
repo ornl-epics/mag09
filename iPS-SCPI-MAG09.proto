@@ -1,0 +1,158 @@
+#######################################################################
+#
+# This protocol file is for use with StreamDevice-2-0 (i.e. epics 3.14)
+#
+#######################################################################
+#
+# Stream Device Protocol for Oxford Instruments Mercury iTC Temperature Controller
+# Using the SCPI command set
+#
+
+terminator   = CR LF;
+replytimeout = 2000;
+separator    = "";
+interminator = 0x0a;
+#################################################################################
+
+# System commands
+
+# stringin
+READ_IDENT {
+  ExtraInput = Ignore;
+  out "*IDN?";
+  in  "IDN:%40c";
+}
+
+###################################
+#POWER SUPPLY READS
+# analogue in
+#Checked
+READ_VOLT {
+  out "READ:DEV:GRPZ:PSU:SIG:VOLT";
+  in  "STAT:DEV:GRPZ:PSU:SIG:VOLT:%fV";
+}
+
+READ_HELLEV {
+  out "READ:DEV:DB3.L1:LVL:SIG:HEL:LEV";
+  in  "STAT:DEV:DB3.L1:LVL:SIG:HEL:LEV:%f\%";
+}
+
+
+
+# analogue in
+#Checked
+READ_CURR {
+  out "READ:DEV:GRPZ:PSU:SIG:CURR";
+  in  "STAT:DEV:GRPZ:PSU:SIG:CURR:%fA";
+}
+
+# analogue in persistant current
+#Checked
+READ_PCUR {
+  out "READ:DEV:GRPZ:PSU:SIG:PCUR";
+  in  "STAT:DEV:GRPZ:PSU:SIG:PCUR:%fA";
+}
+
+# analogue in
+#Checked
+READ_CSET {
+  out "READ:DEV:GRPZ:PSU:SIG:CSET";
+  in  "STAT:DEV:GRPZ:PSU:SIG:CSET:%fA";
+}
+
+# analogue in
+#Checked
+READ_FSET {
+  out "READ:DEV:GRPZ:PSU:SIG:FSET";
+  in  "STAT:DEV:GRPZ:PSU:SIG:FSET:%fT";
+}
+
+# analogue in
+#Checked
+READ_RCST {
+ExtraInput = Ignore;
+  out "READ:DEV:GRPZ:PSU:SIG:RCST";
+  in   "STAT:DEV:GRPZ:PSU:SIG:RCST:%f";
+}
+
+# analogue in
+#Checked
+READ_RFST {
+ExtraInput = Ignore;
+  out "READ:DEV:GRPZ:PSU:SIG:RFST";
+  in   "STAT:DEV:GRPZ:PSU:SIG:RFST:%f";
+}
+
+# analogue in
+READ_FLD {
+#Checked
+  out "READ:DEV:GRPZ:PSU:SIG:FLD";
+  in   "STAT:DEV:GRPZ:PSU:SIG:FLD:%fT";
+}
+# analogue in
+#Checked
+READ_PFLD {
+  out "READ:DEV:GRPZ:PSU:SIG:PFLD";
+  in   "STAT:DEV:GRPZ:PSU:SIG:PFLD:%fT";
+}
+
+
+# analogue in
+READ_RFLD {
+ExtraInput = Ignore;
+  out "READ:DEV:GRPZ:PSU:SIG:RFLD";
+  in   "STAT:DEV:GRPZ:PSU:SIG:RFLD:%fT/min";
+}
+
+# bi
+READ_SWHT {
+  out "READ:DEV:GRPZ:PSU:SIG:SWHT";
+  in   "STAT:DEV:GRPZ:PSU:SIG:SWHT:%{OFF|ON}";
+}
+#Read Switch Present Need to investigate
+READ_SWPR {
+  out "READ:DEV:GRPZ:PSU:SIG:SWPR";
+  in   "STAT:DEV:GRPZ:PSU:SIG:SWPR:%{OFF|ON}";
+}
+
+
+# mbbi
+READ_ACTN {
+Mismatch = Ignore;
+  out "READ:DEV:GRPZ:PSU:ACTN";
+  in   "STAT:DEV:GRPZ:PSU:ACTN:%{HOLD|RTOS|RTOZ|CLMP}";
+}
+
+# Temperature Sensor commands
+#Checked
+READ_TEMP1 {
+  out "READ:DEV:MB1.T1:TEMP:SIG:TEMP";
+  in  "STAT:DEV:MB1.T1:TEMP:SIG:TEMP:%fK";
+}
+
+##################################
+#Power Supply Writes
+# analogue out
+#Checked
+SET_FSET {
+  out "SET:DEV:GRPZ:PSU:SIG:FSET:%f";
+}
+
+
+# bo
+SET_SWHT {
+  out "SET:DEV:GRPZ:PSU:SIG:SWHT:%{OFF|ON}";
+}
+
+# Set the activity - i.e. Make it do something.
+# A0 Hold 
+# A1 To Set Point
+# A2 To Zero
+# A4 Clamp
+#setActivity {wait 50; out "A%u" ; in "A" ; }
+# mbbi
+SET_ACTN {
+  	wait 100;
+	out "SET:DEV:GRPZ:PSU:ACTN:%{HOLD|RTOS|RTOZ|CLMP}";
+}
+

@@ -1,0 +1,388 @@
+
+#######################################################
+#
+# Template file for MAG-09 magnet ramping SNL. This
+# is a high level interface for the MAG-B state machine
+# and the Oxford IPS 120 power supply that sit 
+# underneath it.
+#
+# Macros:
+# S - Base PV name
+# PS - Base PV name of the power supply
+#
+#######################################################
+
+# /// 
+# /// Start a ramp process
+# ///
+record(busy, "$(S):Ramp")
+{
+   field(DTYP, "Soft Channel")
+   field(VAL,  "0")
+}
+
+# /// 
+# /// Reset in case of an error
+# ///
+record(bo, "$(S):Reset")
+{
+   field(DTYP, "Soft Channel")
+   field(VAL,  "0")
+}
+
+# /// 
+# /// Abort a ramp process (only works within the magnet ramp state).
+# ///
+record(bo, "$(S):StopRamp")
+{
+   field(DTYP, "Soft Channel")
+   field(VAL,  "0")
+}
+
+# /// 
+# /// Ramping flag
+# ///
+record(bo, "$(S):Ramping")
+{
+  field(DTYP, "Soft Channel")
+   field(VAL,  "0")
+   field(PINI, "YES")
+   field(ZNAM, "Not Ramping")
+   field(ONAM, "Ramping")
+   info(archive, "Monitor, 00:00:01, VAL")      
+}
+
+# ///
+# /// State of the SNL program
+# ///
+record(longout, "$(S):State")
+{
+   field(DESC, "Slim SAM SNL State")
+   field(FLNK, "$(S):StateEnum.PROC")
+}
+
+# ///
+# /// Enum State. These names have to match what
+# /// is listed in the SNL program.
+# ///
+record(mbbi, "$(S):StateEnum")
+{
+   field(DESC, "SNL State")
+   field(DTYP, "Raw Soft Channel")
+   field(INP, "$(S):State.VAL")
+   field(ZRVL, "0x01")
+   field(ONVL, "0x02")
+   field(TWVL, "0x04")
+   field(THVL, "0x08")
+   field(FRVL, "0x10")
+   field(FVVL, "0x20")
+   field(SXVL, "0x40")
+   field(SVVL, "0x80")
+   field(EIVL, "0x100")
+   field(NIVL, "0x200") 
+   field(TEVL, "0x400") 
+   field(ELVL, "0x800") 
+   field(ZRST, "Init")
+   field(ONST, "Idle")
+   field(TWST, "PSU Ramp")
+   field(THST, "Heater On")
+   field(FRST, "Magnet Ramp")
+   field(FVST, "Heater Off")
+   field(SXST, "PSU Zero")
+   field(SVST, "End")
+   field(EIST, "Error")
+   field(NIST, "Reset")
+   field(TEST, "Oscillation")
+   field(ELST, "Wiggle")
+   field(EISV, "MAJOR")
+   field(NISV, "MAJOR")
+   info(archive, "Monitor, 00:00:01, VAL")              
+}
+
+# /// 
+# /// Error
+# ///
+record(bo, "$(S):Error") {
+   field(DTYP, "Soft Channel")
+   field(VAL,  "1")
+   field(PINI, "YES")
+   info(archive, "Monitor, 00:00:01, VAL")      
+}
+
+# ///
+# /// Alarm and Alarm Control
+# ///
+record(bo, "$(S):AlarmEnable")  {
+   field(VAL,  "1")
+   field(PINI, "YES")
+   field(ZNAM, "Alarm Disabled")
+   field(ONAM, "Alarm Enabled")
+   field(ZSV, "MINOR")
+   field(FLNK, "$(S):AlarmCalc")
+   info(autosaveFields, "VAL")
+   info(archive, "Monitor, 00:00:01, VAL")  
+}
+record (calcout, "$(S):AlarmCalc") {   
+  field(INPA, "$(S):Error CP")
+  field(INPB, "$(S):AlarmEnable CP")
+  field(CALC, "A&B?1:0")
+  field(DOPT, "Use CALC")
+  field(OOPT, "Every Time")
+  field(OUT, "$(S):Alarm PP")
+}
+record(bi, "$(S):Alarm") {
+  field(ZNAM, "No Alarm")
+  field(ONAM, "Alarm")
+  field(OSV, "MAJOR")
+  field(PINI, "YES")
+  field(VAL, "0")  
+  info(archive, "Monitor, 00:00:01, VAL")  
+}
+
+
+# ///
+# /// Message
+# ///
+record(stringout, "$(S):Message") 
+{
+   field(DTYP, "Soft Channel")
+   field(VAL, " ")
+}
+
+# ///
+# /// Was the SNL reset. This is set when the user does a reset, and
+# /// is cleared when the next ramp is started.
+# ///
+record(bo, "$(S):WasReset")
+{
+   field(DTYP, "Soft Channel")
+   field(VAL,  "0")
+   field(ZNAM, "No Reset")
+   field(ONAM, "Was Reset")
+   field(PINI, "YES")
+   info(archive, "Monitor, 00:00:01, VAL")      
+}
+
+# /// 
+# /// Debug level on IOC console
+# /// 0 = no debug statements
+# /// 1 = errors/problems and transition to error/reset state
+# /// 2 = trace state flow, plus debug level 1 statements
+# ///
+record(longout, "$(S):DebugLevel")
+{
+   field(DESC, "Debug Level")
+   field(VAL, "2")
+   field(PINI, "YES")
+   info(autosaveFields, "VAL")
+}
+
+# ///
+# /// Desired value for the magnetic field.
+# ///
+record(ao, "$(S):FieldSet")
+{
+   field(DTYP, "Soft Channel")
+   field(DESC, "Set Desired Field")
+   field(VAL,  "0")
+   field(DRVH, "14.0")
+   field(DRVL, "-14.0")
+   field(EGU, "T")
+   field(PREC, "5")
+   info(archive, "Monitor, 00:00:01, VAL")     
+}
+
+# ///
+# /// This sets FieldSet and then automatically 
+# /// starts the ramp process. For use in scripts.
+# ///
+record(ao, "$(S):FieldSetRamp")
+{
+   field(DTYP, "Soft Channel")
+   field(DESC, "Set Field & Ramp")
+   field(VAL,  "0")
+   field(DRVH, "14.0")
+   field(DRVL, "-14.0")
+   field(EGU, "T")
+   field(PREC, "5")
+   field(OUT, "$(S):FieldSet PP")
+   field(FLNK, "$(S):RampAuto")
+   info(archive, "Monitor, 00:00:01, VAL")     
+}
+record(bo, "$(S):RampAuto")
+{
+   field(VAL, "1")
+   field(OUT, "$(S):Ramp PP")
+}
+
+# ///
+# /// Persistent Field Readback from the power supply
+# ///
+record(ai, "$(S):Field")
+{
+   field(DESC, "Persistent Field")
+   field(INP, "$(S):RBV:PERSISTENTMAGNETFIELD CP MS")
+   field(EGU, "T")
+   field(PREC, "5")
+   info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// Desired value for the magnetic field.
+# ///
+record(ao, "$(S):RampingTo")
+{
+   field(DTYP, "Soft Channel")
+   field(DESC, "Ramping To This Field")
+   field(EGU, "T")
+   field(PREC, "5")
+   info(archive, "Monitor, 00:00:01, VAL")     
+}
+
+# ///
+# /// Deadband used when setting and reading back magnetic field in the SNL.
+# ///
+record(ai, "$(S):FieldDeadband")
+{
+   field(DTYP, "Soft Channel")
+   field(DESC, "Field Deadband")
+   field(EGU, "T")
+   field(PREC, "5")
+   field(VAL, "0.002")  
+   info(autosaveFields, "VAL")
+   info(archive, "Monitor, 00:00:01, VAL")        
+}
+
+# ///
+# /// Deadband used when setting and reading back current in the SNL.
+# ///
+record(ai, "$(S):CurrentDeadband")
+{
+   field(DTYP, "Soft Channel")
+   field(DESC, "Current Deadband")
+   field(EGU, "A")
+   field(PREC, "5")
+   field(VAL, "0.010")  
+   info(autosaveFields, "VAL")
+   info(archive, "Monitor, 00:00:01, VAL")        
+}
+
+# ///
+# /// Wait time between SNL states and commands. This wait time ensures the power supplies
+# /// complete the operation and that we don't send commands too quickly.
+# ///
+record(ai, "$(S):WaitTime") {
+   field(DESC, "Time To Wait in SNL States")
+   field(EGU, "s")
+   field(PREC, "0")
+   field(VAL, "5")
+   field(PINI, "YES")        
+   info(autosaveFields, "VAL")        
+}
+
+# ///
+# /// Wait time after turning on or off the heater switch 
+# ///  on mag-09 this is 180 seconds so 200 should be fine
+record(ai, "$(S):WaitTimeHeater") {
+   field(DESC, "Heater Time To Wait")
+   field(EGU, "s")
+   field(PREC, "0")
+   field(VAL, "200")
+   field(PINI, "YES")        
+   info(autosaveFields, "VAL")
+
+}
+
+# ///
+# /// Wait time after reaching 3T.
+# /// We must wait 15 minutes at 3T before ramping beyond that point. 
+# ///
+record(ai, "$(S):StabilizationTime") {
+   field(DESC, "Stabilization Time")
+   field(EGU, "s")
+   field(PREC, "0")
+   field(VAL, "900")
+   field(PINI, "YES")        
+}
+
+# ///
+# /// Timeout for each SNL state. Each SNL state waits for some operation
+# /// to complete by reading back power supply status. If the state never
+# /// completes within this timeout, the sequence is aborted and we go to Error state. 
+# /// Note: it will take at least ????s to reach 5T from zero.
+# ///
+record(ai, "$(S):Timeout") {
+   field(DESC, "Timeout in SNL States")
+   field(EGU, "s")
+   field(PREC, "0")
+   field(VAL, "10000")
+   field(PINI, "YES")
+   info(autosaveFields, "VAL")        
+}
+
+# ///
+# /// Record to indicate if the current ramp is the initial ramp after 
+# /// the IOC has been restarted. We do this because after the magnet
+# /// has been cooled down we need to adjust the ramp rates the first time
+# /// we do a ramp.
+# ///
+record(bo, "$(S):InitialRamp")
+{
+   field(VAL,  "0")
+   field(PINI, "YES")
+   field(ZNAM, "Not Initial Ramp")
+   field(ONAM, "Initial Ramp")
+   info(archive, "Monitor, 00:00:01, VAL")      
+}
+
+# ///
+# /// Record to indicate which part of the ramp we are in. 
+# /// For anything over 3T we have to do multi stage ramping at different
+# /// ramp rates and holding at some points.
+# ///
+record(mbbo, "$(S):RampStatus")
+{
+   field(VAL,  "0")
+   field(PINI, "YES")
+   field(ZRST, "Not Ramping")
+   field(ONST, "Intermediate Ramp")
+   field(TWST, "Final Ramp")
+   field(THST, "Finished Ramp")
+   info(archive, "Monitor, 00:00:01, VAL")      
+}
+
+# ///
+# /// This is used internally by the sequence program to hold
+# /// the intermediate target field when doing a multistage ramp.
+# ///
+record(ai, "$(S):LastTargetField")
+{
+   field(DTYP, "Soft Channel")
+   field(DESC, "Last TargetField")
+   field(VAL,  "0")
+   field(EGU, "T")
+   field(PREC, "5")
+   info(archive, "Monitor, 00:00:01, VAL")     
+}
+
+# ///
+# /// Timer for user feedback. Use for heater
+# /// switch delays and stabilization timer.
+# ///
+record(calcout, "$(S):Timer")
+{
+   field(DESC, "Time In Run")
+   field(CALC, "A+1")
+   field(OUT, "$(S):Timer.A NPP")
+   field(SCAN, "1 second")
+   field(EGU, "s")
+   info(archive, "Monitor, 00:00:01, VAL")      
+}
+record(dfanout, "$(S):ClearTimer")
+{
+   field(DOL, "0")
+   field(OUTA, "$(S):Timer.VAL PP")
+   field(OUTB, "$(S):Timer.A PP")
+}
+
+ 

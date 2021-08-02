@@ -1,0 +1,65 @@
+#######################################################################
+#
+# This protocol file is for use with StreamDevice-2-0 (i.e. epics 3.14)
+#
+#######################################################################
+#
+# Stream Device Protocol for Oxford Instruments Mercury iTC Temperature Controller
+# Using the SCPI command set
+#
+
+terminator   = LF;
+replytimeout = 2000;
+separator    = "";
+
+#################################################################################
+
+# System commands
+
+# stringin
+READ_IDENT {
+  ExtraInput = Ignore;
+  out "*IDN?";
+  in  "IDN:%40c";
+}
+###################################
+
+#TEMP
+# analogue in
+RVTI_TEMP{
+  out "READ:DEV:MB1.T1:TEMP:SIG:TEMP";
+  in  "STAT:DEV:MB1.T1:TEMP:SIG:TEMP:%fK";
+}
+
+
+#TEMP
+# analogue in
+RVTI_HEATERV {
+  out "READ:DEV:DB1.H1:HTR:SIG:VOLT";
+  in  "STAT:DEV:DB1.H1:HTR:SIG:VOLT:%fV";
+}
+
+
+#TEMP
+# analogue in
+RBATH_PRESS {
+  out "READ:DEV:DB6.P1:PRES:SIG:PRES";
+  in  "STAT:DEV:DB6.P1:PRES:SIG:PRES:%fmB";
+}
+
+
+#READ PT TEMP
+# analogue in
+RPT_TEMP {
+  out "READ:DEV:DB7.T1:TEMP:SIG:TEMP";
+  in  "STAT:DEV:DB7.T1:TEMP:SIG:TEMP:%fK";
+}
+
+
+#READ VTI Heater Percent
+# analogue in 
+RVTI_HEATERP { 
+  out "READ:DEV:DB1.H1:HTR:SIG:PERC"; 
+  in  "STAT:DEV:DB1.H1:HTR:SIG:PERC:%f\%"; 
+} 
+

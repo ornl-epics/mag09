@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Mag-9 Advanced</name>
+  <width>1200</width>
+  <widget type="slide_button" version="2.0.0">
+    <name>Slide Button</name>
+    <pv_name>SE:SE:MAG09:SET_SWHT</pv_name>
+    <label>Switch</label>
+    <x>130</x>
+    <y>140</y>
+    <width>110</width>
+    <height>20</height>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>SE:SE:MAG09:READ_SWHT</pv_name>
+    <x>240</x>
+    <y>140</y>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>SE:SE:MAG09:SET_RFST</pv_name>
+    <x>150</x>
+    <y>100</y>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>SE:SE:MAG09:SET_FSET</pv_name>
+    <x>150</x>
+    <y>60</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>SE:SE:MAG09:READ_VOLT</pv_name>
+    <x>159</x>
+    <y>295</y>
+    <width>157</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>SE:SE:MAG09:READ_RCST</pv_name>
+    <x>284</x>
+    <y>100</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>SE:SE:MAG09:READ_RFST</pv_name>
+    <x>159</x>
+    <y>248</y>
+    <width>157</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>SE:SE:MAG09:READ_RFLD</pv_name>
+    <x>159</x>
+    <y>270</y>
+    <width>157</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_5</name>
+    <pv_name>SE:SE:MAG09:READ_PFLD</pv_name>
+    <x>159</x>
+    <y>196</y>
+    <width>157</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>SE:SE:MAG09:READ_PCUR</pv_name>
+    <x>159</x>
+    <y>369</y>
+    <width>157</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>SE:SE:MAG09:READ_FSET</pv_name>
+    <x>284</x>
+    <y>60</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>SE:SE:MAG09:READ_FLD</pv_name>
+    <x>159</x>
+    <y>222</y>
+    <width>157</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_9</name>
+    <pv_name>SE:SE:MAG09:READ_CURR</pv_name>
+    <x>159</x>
+    <y>344</y>
+    <width>157</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_10</name>
+    <pv_name>SE:SE:MAG09:READ_CSET</pv_name>
+    <x>159</x>
+    <y>318</y>
+    <width>157</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Byte Monitor</name>
+    <pv_name>SE:SE:MAG09:READ_ACTN</pv_name>
+    <x>156</x>
+    <y>170</y>
+    <width>160</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Field SP</text>
+    <x>20</x>
+    <y>60</y>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Ramp Rate SP</text>
+    <x>30</x>
+    <y>100</y>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Ramp Status</text>
+    <x>3</x>
+    <y>170</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Persistent Field</text>
+    <x>3</x>
+    <y>196</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Field</text>
+    <x>3</x>
+    <y>222</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Field Ramp Rate </text>
+    <x>3</x>
+    <y>249</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Actual Field Rate</text>
+    <x>3</x>
+    <y>271</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Voltage</text>
+    <x>3</x>
+    <y>295</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>Persistent Current</text>
+    <x>3</x>
+    <y>365</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Actual Current</text>
+    <x>3</x>
+    <y>340</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>Current SP</text>
+    <x>3</x>
+    <y>315</y>
+    <width>149</width>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button</name>
+    <pv_name>SE:SE:MAG09:Ramp</pv_name>
+    <x>490</x>
+    <y>80</y>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Mag-G Superconducting Magnet Control</name>
+    <macros>
+      <PS>$(BL):SE:MagG</PS>
+    </macros>
+    <x>350</x>
+    <y>170</y>
+    <width>574</width>
+    <height>301</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="led" version="2.0.0">
+      <name>LED_1</name>
+      <pv_name>SE:SE:MAG09:Ramping</pv_name>
+      <bit>0</bit>
+      <x>511</x>
+      <y>122</y>
+      <width>22</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>Ramping</text>
+      <x>424</x>
+      <y>120</y>
+      <width>82</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input</name>
+      <pv_name>SE:SE:MAG09:FieldSet</pv_name>
+      <x>150</x>
+      <y>54</y>
+      <width>108</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_12</name>
+      <text>Desired Field</text>
+      <x>18</x>
+      <y>54</y>
+      <width>124</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_4</name>
+      <pv_name>SE:SE:MAG09:RBV:PERSISTENTMAGNETFIELD</pv_name>
+      <x>151</x>
+      <y>20</y>
+      <width>107</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_12</name>
+      <pv_name>SE:SE:MAG09:RampingTo</pv_name>
+      <x>150</x>
+      <y>120</y>
+      <width>108</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_13</name>
+      <text>Ramping To</text>
+      <y>120</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_24</name>
+      <pv_name>SE:SE:MAG09:Message</pv_name>
+      <x>151</x>
+      <y>190</y>
+      <width>382</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>Start Ramp</description>
+        </action>
+      </actions>
+      <pv_name>SE:SE:MAG09:Ramp</pv_name>
+      <x>264</x>
+      <y>54</y>
+      <width>119</width>
+      <height>26</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_14</name>
+      <text>Persistent Field</text>
+      <x>18</x>
+      <y>20</y>
+      <width>124</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_15</name>
+      <text>Message</text>
+      <y>190</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_1</name>
+      <actions>
+        <action type="open_display">
+          <file>MagG_SEQ.bob</file>
+          <macros>
+            <S>SE:SE:MAG09</S>
+          </macros>
+          <target>replace</target>
+          <description>Details</description>
+        </action>
+      </actions>
+      <x>150</x>
+      <y>226</y>
+      <width>108</width>
+      <height>26</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_25</name>
+      <pv_name>SE:SE:MAG09:RBV:DEMANDFIELD</pv_name>
+      <x>150</x>
+      <y>154</y>
+      <width>108</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_16</name>
+      <text>Power Supply Field</text>
+      <y>154</y>
+      <width>142</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_26</name>
+      <pv_name>SE:SE:MAG09:RBV:FIELDSWEEPRATE</pv_name>
+      <x>150</x>
+      <y>86</y>
+      <width>108</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_17</name>
+      <text>Ramp Rate</text>
+      <x>18</x>
+      <y>86</y>
+      <width>124</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_18</name>
+      <text>(only valid at end of ramp)</text>
+      <x>264</x>
+      <y>20</y>
+      <width>211</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_2</name>
+      <pv_name>SE:SE:MAG09:Error</pv_name>
+      <bit>0</bit>
+      <x>511</x>
+      <y>156</y>
+      <width>22</width>
+      <height>22</height>
+      <on_color>
+        <color name="Major" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_19</name>
+      <text>Ramp Error</text>
+      <x>402</x>
+      <y>154</y>
+      <width>104</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_20</name>
+      <text>RAMPING!</text>
+      <x>392</x>
+      <y>46</y>
+      <width>154</width>
+      <height>34</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="32.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="Attention" red="255" green="160" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="Visible Rule" prop_id="visible" out_exp="true">
+          <exp bool_exp="!pv0">
+            <expression>false</expression>
+          </exp>
+          <pv_name>SE:SE:MAG09:Ramping</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_21</name>
+      <text>OSCILLATION</text>
+      <x>378</x>
+      <y>80</y>
+      <width>165</width>
+      <height>34</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="24.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="Attention" red="255" green="160" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="Visible Rule" prop_id="visible" out_exp="true">
+          <exp bool_exp="!pv0">
+            <expression>false</expression>
+          </exp>
+          <pv_name>SE:SE:MAG09:OscOn</pv_name>
+        </rule>
+      </rules>
+    </widget>
+  </widget>
+</display>

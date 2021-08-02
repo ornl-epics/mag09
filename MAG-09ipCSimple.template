@@ -1,0 +1,250 @@
+record(ai, "$(S):Delay1S") {
+   field(DESC, "Delay record")
+   field(EGU, "S")
+   field(PREC, "0")
+   field(VAL, "1")
+   field(PINI, "YES")
+   info(autosaveFields, "VAL")
+}
+
+
+
+record(ai, "$(S):READ_T1") {
+  info(DESC, "Read T1 Temp")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_TEMP1 $(PORT)")
+  field(PREC, "3")
+  field(EGU, "K")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+
+
+record(ai, "$(S):READ_HELLEV") {
+  info(DESC, "Read HE Level")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_HELLEV $(PORT)")
+  field(PREC, "3")
+  field(EGU, "%")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+
+record(ai, "$(S):READ_VOLT") {
+  info(DESC, "Read Actual Voltage")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_VOLT $(PORT)")
+  field(PREC, "3")
+  field(EGU, "V")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+record(ai, "$(S):READ_CURR") {
+  info(DESC, "Read Actual Current")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_CURR $(PORT)")
+  field(PREC, "3")
+  field(EGU, "A")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+#
+record(ai, "$(S):READ_PCUR") {
+  info(DESC, "Read Actual Persistance Current")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_PCUR $(PORT)")
+  field(PREC, "3")
+  field(EGU, "A")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+#
+record(ai, "$(S):READ_CSET") {
+  info(DESC, "Read Target Current")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_CSET $(PORT)")
+  field(PREC, "3")
+  field(EGU, "A")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+#
+record(ai, "$(S):READ_FSET") {
+  info(DESC, "Read Target Field")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_FSET $(PORT)")
+  field(PREC, "3")
+  field(EGU, "T")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+#
+record(ai, "$(S):READ_RCST") {
+  info(DESC, "Read Target Ramp Rate A/Min")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_RCST $(PORT)")
+  field(PREC, "3")
+  field(EGU, "A/min")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+#
+record(ai, "$(S):READ_RFST") {
+  info(DESC, "Read Target Ramp Rate in T")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_RFST $(PORT)")
+  field(PREC, "3")
+  field(EGU, "T/min")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+#
+record(ai, "$(S):READ_FLD") {
+  info(DESC, "Read Actual Field in T")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_FLD $(PORT)")
+  field(PREC, "3")
+  field(EGU, "T")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+#
+record(ai, "$(S):READ_PFLD") {
+  info(DESC, "Read Persistant Field in T")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_PFLD $(PORT)")
+  field(PREC, "3")
+  field(EGU, "T")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+#
+#
+record(ai, "$(S):READ_RFLD") {
+  info(DESC, "Read Field Rate T/Min")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_RFLD $(PORT)")
+  field(PREC, "3")
+  field(EGU, "T/min")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+#% gdatag,mbbinary,rw,$(gda_name=),SET_ACTIVITY
+# # Hold means maintaining present current.
+# # Clamped means you cannot adjust it - powers up in this
+# # state.  Only the set activity hold command can get out
+# # of the clamped state.  Hold will interrupt a sweep.
+record(mbbo, "$(S):SET_ACTN") {
+  field(DESC, "Activity Control")
+  field(DTYP, "stream")
+  field(SCAN, "Passive")
+  field(OUT,   "@iPS-SCPI-MAG09.proto SET_ACTN $(PORT)")
+  field(ZRST, "Hold")
+  field(ZRVL, "0")
+  field(ONST, "To SP")
+  field(ONVL, "1")
+  field(TWST, "To Zero")
+  field(TWVL, "2")
+  field(THST, "Clamp")
+  field(THVL, "3")
+  info(archive, "Monitor, 00:00:01, VAL")
+  field(FLNK, "$(S):READ_ACTN")
+}
+####Set ACTN and READ ACTN have a forward link because
+###the PS activity could read and be set back to hold
+###quickly
+record(mbbi, "$(S):READ_ACTN") {
+  info(DESC, "Read Activity")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_ACTN $(PORT)")
+  field(SCAN, ".5 second")
+  field(NOBT, "3")
+  field (ZRVL, "0")
+  field (ONVL, "1")
+  field (TWVL, "2")
+  field (THVL, "3")
+  field (ZRST, "Hold")
+  field (ONST, "to Set")
+  field (TWST, "to Zero")
+  field (THST, "Clamp")
+  info (archive, "monitor, 00:01:00, VAL")
+
+}
+
+
+record(ao, "$(S):SET_FSET") {
+  info(DESC, "Set Target Field")
+  field(DTYP, "stream")
+  field(OUT, "@iPS-SCPI-MAG09.proto SET_FSET $(PORT)")
+  field(PREC, "3")
+  field(EGU, "T")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+##################################################
+##Persistence Switch Section
+#The switch state changes immediately but is not acutally
+#fully on until the 3 minute timer expires. 
+##################################################
+record(bo, "$(S):SET_SWHT") {
+  info(DESC, "ST Switch Heater")
+  field(DTYP, "stream")
+  field(OUT, "@iPS-SCPI-MAG09.proto SET_SWHT $(PORT)")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+record(bi, "$(S):READ_SWHT") {
+  info(DESC, "Read Switch Heater Status")
+  field(SCAN, "2 second")
+  field(DTYP, "stream")
+  field(INP, "@iPS-SCPI-MAG09.proto READ_SWHT $(PORT)")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
+record(calcout, "$(S):SwitchCalc") {
+  field(INPA, "$(S):READ_SWHT CP")
+  field(CALC, "A")
+  field(OOPT, "On Change")
+  field(OCAL, "190")	
+  field(DOPT, "Use OCAL")
+  field(OUT, "$(S):SWHTTimer CA")
+}
+
+record(calc, "$(S):SWHTTimer") {
+  info(DESC, "Timer for persistence switch")
+  field (EGU, "Sec")
+  field (INPA, "$(S):SWHTTimer")
+  field (INPB, "$(S):SwitchCalc")
+  field (SCAN, "1 second")
+  field (VAL, "0")
+  field (CALC, "A=0?0:A-1")
+  info(archive, "Monitor, 00:01:00")
+}
+
+record (calc, "$(S):SwitchSts") {
+  info(DESC, "Persistence switch after timer")
+  field (INPA, "$(S):SWHTTimer CP")
+  field (INPB, "$(S):READ_SWHT")
+  field (CALC, "A=0?B:2")
+  field (FLNK, "$(S):SwitchTSts")
+}
+
+record(mbbi, "$(S):SwitchTSts") {
+  info(DESC, "Read Switch Status with timer")
+  field(INP, "$(S):SwitchSts")
+  field(ZRST, "OFF")
+  field(ONST, "ON")
+  field(TWST, "Wait")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  info (archive, "monitor, 00:01:00, VAL")
+}
+
